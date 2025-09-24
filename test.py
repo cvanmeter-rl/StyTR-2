@@ -107,6 +107,8 @@ else:
 if not os.path.exists(output_path):
     os.mkdir(output_path)
 
+print(len(content_paths))
+print(len(style_paths))
 
 vgg = StyTR.vgg
 vgg.load_state_dict(torch.load(args.vgg))
@@ -180,6 +182,7 @@ for content_path in content_paths:
  
         save_image(output, output_name)
    
+
 
 
 
