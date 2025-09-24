@@ -80,7 +80,7 @@ args = parser.parse_args()
 content_size=512
 style_size=512
 crop='store_true'
-save_ext='.jpg'
+save_ext='.tif'
 output_path=args.output
 preserve_color='store_true'
 alpha=args.a
@@ -173,11 +173,12 @@ for content_path in content_paths:
             output= network(content,style)       
         output = output.cpu()
                 
-        output_name = '{:s}/{:s}_stylized_{:s}{:s}'.format(
+        output_name = '{:s}/{:s}{:s}'.format(
             output_path, splitext(basename(content_path))[0],
-            splitext(basename(style_path))[0], save_ext
+            save_ext
         )
  
         save_image(output, output_name)
    
+
 
