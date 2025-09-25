@@ -173,7 +173,7 @@ for content_path in content_paths:
         
         with torch.no_grad():
             result = network(content,style) 
-        output = result[0] if isinstance(res, (tuple,,list)) else result
+        output = result[0] if isinstance(res, (tuple,list)) else result
         output = output.detach().cpu()
                 
         output_name = '{:s}/{:s}{:s}'.format(
@@ -183,6 +183,7 @@ for content_path in content_paths:
  
         save_image(output, output_name)
    
+
 
 
 
