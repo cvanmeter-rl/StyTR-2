@@ -173,7 +173,7 @@ for content_path in content_paths:
         
         with torch.no_grad():
             output= network(content,style)       
-        output = output.cpu()
+        output = output[0].detach().cpu()
                 
         output_name = '{:s}/{:s}{:s}'.format(
             output_path, splitext(basename(content_path))[0],
@@ -182,6 +182,7 @@ for content_path in content_paths:
  
         save_image(output, output_name)
    
+
 
 
 
